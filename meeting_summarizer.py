@@ -23,41 +23,168 @@ INDEX_HTML = """
 <html>
 <head>
   <meta charset="utf-8"/>
-  <title>Meeting Summarizer</title>
+  <title>🧠 Meeting Summarizer</title>
   <style>
-    body{font-family:Arial,Helvetica,sans-serif;max-width:900px;margin:30px auto;padding:10px}
-    textarea{width:100%;height:240px;padding:8px;font-size:14px}
-    button{padding:8px 12px;font-size:14px;margin-top:10px}
-    pre{white-space:pre-wrap;background:#f7f7f7;padding:12px;border-radius:6px}
+    :root {
+      --bg: #fdfcfb;
+      --card-bg: #ffffff;
+      --accent: #4b8bf4;
+      --text: #2b2b2b;
+      --subtle: #6e6e6e;
+      --shadow: rgba(0, 0, 0, 0.1);
+      --radius: 12px;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: "Inter", "Segoe UI", Arial, Helvetica, sans-serif;
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 20px;
+      color: var(--text);
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+      color: var(--text);
+    }
+
+    p {
+      color: var(--subtle);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    form {
+      background: var(--card-bg);
+      padding: 2rem 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 16px var(--shadow);
+      transition: 0.3s ease;
+    }
+
+    form:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px var(--shadow);
+    }
+
+    textarea {
+      width: 100%;
+      height: 240px;
+      padding: 0.8rem;
+      font-size: 0.95rem;
+      border: 1.6px solid #dcdcdc;
+      border-radius: var(--radius);
+      resize: vertical;
+      transition: 0.2s;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(75, 139, 244, 0.2);
+    }
+
+    button {
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius);
+      padding: 0.8rem 1.6rem;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: all 0.2s ease;
+    }
+
+    button:hover {
+      background: #357ae8;
+      transform: translateY(-1px);
+    }
+
+    h3 {
+      margin-top: 2rem;
+      color: var(--text);
+      font-size: 1.25rem;
+    }
+
+    pre {
+      text-align: left;
+      white-space: pre-wrap;
+      background: #f7faff;
+      padding: 1rem;
+      border-radius: var(--radius);
+      border: 1px solid #dfe3f0;
+      font-family: "Consolas", monospace;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: #2b2b2b;
+      box-shadow: 0 4px 10px var(--shadow);
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: var(--subtle);
+    }
+
+    footer span {
+      color: var(--accent);
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
-  <h2>Meeting Summarizer</h2>
+  <h2>🧠 Meeting Summarizer</h2>
   <p>Paste meeting transcript or notes below → get minutes, action items, and decisions.</p>
+  
   <form id="f">
     <textarea id="text" placeholder="Paste transcript or notes here..."></textarea><br/>
-    <button type="submit">Summarize</button>
+    <button type="submit">✨ Summarize</button>
   </form>
-  <h3>Result</h3>
-  <pre id="out">No summary yet.</pre>
+  
+  <h3>📋 Result</h3>
+  <pre id="out">{
+  "minutes": [
+    "Homepage prototype ready; visuals to be finalized by Wednesday.",
+    "User feedback survey will be sent by Friday.",
+    "Client meeting rescheduled to next Monday at 10 AM."
+  ],
+  "action_items": [
+    {"task": "Finalize homepage visuals", "owner": "Design team", "due": "Wednesday"},
+    {"task": "Send user feedback survey", "owner": "Charlie", "due": "Friday"},
+    {"task": "Prepare presentation slides", "owner": "David", "due": "Sunday"},
+    {"task": "Schedule follow-up call", "owner": "Alice", "due": "Tuesday"}
+  ],
+  "decisions": [
+    "Feature rollout postponed until after QA approval next week."
+  ]
+}
+</pre>
 
-<script>
-document.getElementById('f').onsubmit = async (e) => {
-  e.preventDefault();
-  const txt = document.getElementById('text').value;
-  if (!txt.trim()) { alert("Paste transcript first."); return; }
-  document.getElementById('out').textContent = "Working...";
-  const res = await fetch('/summarize', {
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({text: txt})
-  });
-  const j = await res.json();
-  document.getElementById('out').textContent = JSON.stringify(j, null, 2);
-};
-</script>
+  <footer>Built with <span>Flask</span> & 💡 by <span>Shivanshi Verma</span></footer>
+
+  <script>
+  document.getElementById('f').onsubmit = async (e) => {
+    e.preventDefault();
+    const txt = document.getElementById('text').value;
+    if (!txt.trim()) { alert("Paste transcript first."); return; }
+    document.getElementById('out').textContent = "Working...";
+    const res = await fetch('/summarize', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({text: txt})
+    });
+    const j = await res.json();
+    document.getElementById('out').textContent = JSON.stringify(j, null, 2);
+  };
+  </script>
 </body>
 </html>
+
 """
 
 @app.route("/")
