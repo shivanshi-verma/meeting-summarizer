@@ -61,19 +61,13 @@ Here’s what the Meeting Summarizer web app looks like:
 <p align="center">
   <img width="1920" height="1080" alt="Screenshot 2025-11-11 145511" src="https://github.com/user-attachments/assets/5f3d92f3-7572-4673-a32a-b55cfd52811d"  width="600" />
   <br>
-  <em>Example: pasting a transcript</em>
+  <em>Example: pasting a transcript and clicking on 'Summarise'</em>
 </p>
 
 <p align="center">
   <img width="1920" height="1080" alt="Screenshot 2025-11-11 145549" src="https://github.com/user-attachments/assets/70df2240-25f8-48df-91a2-1bc065ae16e6"  width="600" />
   <br>
-  <em>Generated summary displayed with minutes, actions, and decisions</em>
-</p>
-
-<p align="center">
-  <img src="static/images/json_result.png" alt="JSON Result Example" width="600"/>
-  <br>
-  <em>JSON output structure from the summarizer API</em>
+  <em>Generated summary displayed with minutes, actions, and decisions in JSON output structure from the summarizer API</em>
 </p>
 
 
