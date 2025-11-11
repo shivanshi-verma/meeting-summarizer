@@ -110,7 +110,8 @@ It still extracts essential **action items** and **decisions** using pattern-mat
 
 ## 👩‍💻 Author
 
-**Shivanshi Verma**
+**Shivanshi Verma** 
+[LinkedIn Profile](https://www.linkedin.com/in/shivanshi-verma-99b299257?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
 Interested in **AI**, **IoT**, and **practical automation tools** that make everyday workflows easier.
 Built with **Flask** and a touch of **AI magic**, making meetings easier to digest.
 
