@@ -5,7 +5,6 @@
 A lightweight web app built with **Flask** and **OpenAI GPT** that helps turn meeting transcripts into clear, structured summaries.
 It automatically identifies **minutes**, **action items**, and **decisions**, making post-meeting follow-ups easier for teams.
 
----
 
 ## 🌟 Features
 
@@ -16,7 +15,6 @@ It automatically identifies **minutes**, **action items**, and **decisions**, ma
 ✅ Simple web interface built with Flask
 ✅ Returns clean JSON output for easy reuse
 
----
 
 ## 🧠 Tech Stack
 
@@ -28,7 +26,6 @@ It automatically identifies **minutes**, **action items**, and **decisions**, ma
 | **Frontend**     | HTML, CSS, JavaScript           |
 | **Offline Mode** | Local rule-based extraction     |
 
----
 
 ## 🚀 Getting Started
 
@@ -51,7 +48,6 @@ python meeting_summarizer.py
 Once the server starts, open your browser and go to:
 👉 **[http://localhost:5000](http://localhost:5000)**
 
----
 
 ## 🧩 Example
 
@@ -83,14 +79,12 @@ Action: Follow-up meeting on Monday. Owner: Alice.
 }
 ```
 
----
 
 ## 💻 Fallback Mode
 
 If no `OPENAI_API_KEY` is provided, the app switches to a **local rule-based summarizer**.
 It still extracts essential **action items** and **decisions** using pattern-matching and keyword logic — ensuring basic functionality even offline.
 
----
 
 ## 👩‍💻 Author
 
