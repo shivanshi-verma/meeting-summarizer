@@ -7,13 +7,12 @@ It automatically identifies **minutes**, **action items**, and **decisions**, ma
 
 
 ## 🌟 Features
-
-✅ Paste or upload meeting transcripts
-✅ Generates concise minutes and decisions
-✅ Detects action items with owners and due dates
-✅ Works even without OpenAI (built-in fallback)
-✅ Simple web interface built with Flask
-✅ Returns clean JSON output for easy reuse
+- Paste or upload meeting transcripts  
+- Generates concise minutes and decisions  
+- Detects action items with owners and due dates  
+- Works even without OpenAI (built-in fallback)  
+- Simple web interface built with Flask  
+- Returns clean JSON output for easy reuse  
 
 
 ## 🧠 Tech Stack
