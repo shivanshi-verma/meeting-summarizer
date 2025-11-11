@@ -65,10 +65,13 @@ Action: Follow-up meeting on Monday. Owner: Alice.
   ]
 }
 
-**💻 Fallback Mode**
+---
+
+
+**## 💻 Fallback Mode**
 If no OPENAI_API_KEY is provided, the app switches to a simple local summarizer that still extracts the key action items and decisions using rule-based logic.
 
-👩‍💻 **Author**
+**##👩‍💻 Author**
 Shivanshi Verma
 Interested in AI, IoT, and practical automation tools that make everyday workflows easier.
 
